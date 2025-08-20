@@ -1,0 +1,254 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-display: swap;
+  background: url("../icons/image.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  touch-action: manipulation;
+}
+.menu-container {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  gap: 0.2em;
+  margin-bottom: 2rem;
+  font-size: clamp(2.5rem, 10vw, 4rem);
+  color: var(--cyan-color);
+  animation: glow-pulse 2s infinite alternate;
+  text-shadow: var(--title-glow);
+}
+h1 span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: letter-appear 0.5s forwards;
+}
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+.btn {
+  position: relative;
+  width: 220px;
+  padding: 15px 30px;
+  overflow: hidden;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border: 2px solid;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(200px) scale(0.8);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-play {
+  color: var(--magenta-color);
+  background: rgba(234, 0, 255, var(--btn-base-opacity));
+  box-shadow: 0 0 15px var(--magenta-color);
+  animation: btn-appear 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: 0.8s;
+  border-color: var(--magenta-color);
+  text-shadow: 0 0 5px var(--magenta-color);
+}
+.btn-statistics {
+  color: var(--cyan-color);
+  background: rgba(0, 255, 255, var(--btn-base-opacity));
+  box-shadow: 0 0 15px var(--cyan-color);
+  animation: btn-appear 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: 1s;
+  border-color: var(--cyan-color);
+  text-shadow: 0 0 5px var(--cyan-color);
+}
+.btn-settings {
+  color: var(--orange-color);
+  background: rgba(255, 165, 0, var(--btn-base-opacity));
+  box-shadow: 0 0 15px var(--orange-color);
+  animation: btn-appear 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: 1.2s;
+  border-color: var(--orange-color);
+  text-shadow: 0 0 5px var(--orange-color);
+}
+.telegram-icon {
+  position: fixed;
+  z-index: 20;
+  right: 20px;
+  bottom: 100px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--light-color);
+  border-radius: 50%;
+  box-shadow: 0 0 50px var(--cyan-color);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.copyright {
+  position: fixed;
+  z-index: 1;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  font-size: 0.8rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  animation: fade-in 2s forwards;
+  pointer-events: none;
+}
+.btn::before {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+  content: "";
+}
+.btn::after {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    transparent,
+    transparent,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(30deg);
+  animation: btn-shine 3s infinite;
+  content: "";
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover::before {
+    left: 100%;
+  }
+  .btn-play:hover {
+    background: rgba(234, 0, 255, var(--btn-hover-opacity));
+    box-shadow: 0 0 25px var(--magenta-color), 0 0 35px rgba(234, 0, 255, 0.2);
+    transform: scale(1.05);
+  }
+  .btn-statistics:hover {
+    background: rgba(0, 255, 255, var(--btn-hover-opacity));
+    box-shadow: 0 0 25px var(--cyan-color), 0 0 35px rgba(0, 255, 255, 0.5);
+    transform: scale(1.05);
+  }
+  .btn-settings:hover {
+    background: rgba(255, 165, 0, var(--btn-hover-opacity));
+    box-shadow: 0 0 25px var(--orange-color), 0 0 35px rgba(255, 165, 0, 0.5);
+    transform: scale(1.05);
+  }
+  .telegram-icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+@keyframes btn-appear {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes glow-pulse {
+  from {
+    text-shadow: var(--title-glow);
+  }
+  to {
+    text-shadow: var(--title-glow-intense);
+  }
+}
+@keyframes play-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 15px var(--magenta-color);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 40px var(--magenta-color), 0 0 60px rgba(234, 0, 255, 0.7);
+    transform: scale(1.05);
+  }
+}
+@keyframes btn-shine {
+  from {
+    transform: rotate(30deg) translate(-30%, -30%);
+  }
+  to {
+    transform: rotate(30deg) translate(30%, 30%);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+}
+@keyframes letter-appear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+@media (max-width: 325px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .btn {
+    width: 180px;
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  .btn-container {
+    gap: 10px;
+  }
+  .copyright {
+    font-size: 0.6rem;
+  }
+}

@@ -1,0 +1,34 @@
+@font-face {
+  font-family: Orbitron;
+
+  src: url("../fonts/Orbitron-ExtraBold.woff2") format("truetype");
+}
+:root {
+  --font-family: "Orbitron", sans-serif;
+
+  --light-color: #ffffff;
+
+  --magenta-color: #ff00ff;
+
+  --cyan-color: #00ffff;
+
+  --orange-color: #ffa500;
+
+  --dark-cyan-color: #009999;
+
+  --dark-magenta-color: #a400a4;
+
+  --dark-orange-color: #ac7000;
+
+  --btn-hover-opacity: 0.4;
+
+  --btn-base-opacity: 0.4;
+
+  --title-glow: 0 0 10px var(--cyan-color), 0 0 20px var(--cyan-color);
+
+  --title-glow-intense: 0 0 15px var(--cyan-color), 0 0 30px var(--cyan-color),
+    0 0 40px var(--cyan-color);
+
+  --button-activity-box-shadow: 0 0 30px var(--light-color),
+    0 0 60px var(--light-color), 0 0 80px var(--light-color);
+}

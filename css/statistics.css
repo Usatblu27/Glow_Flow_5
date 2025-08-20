@@ -1,0 +1,127 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  -webkit-user-select: none;
+
+  user-select: none;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  height: 100vh;
+
+  margin: 0;
+
+  font-family: var(--font-family);
+
+  font-display: swap;
+
+  text-align: center;
+
+  color: var(--orange-color);
+
+  background: url("../icons/image.webp");
+
+  background-repeat: no-repeat;
+
+  background-position: center;
+
+  background-size: cover;
+}
+
+.container {
+  width: 90%;
+
+  max-width: 500px;
+
+  padding: 30px;
+
+  background: rgba(15, 12, 41, 0.8);
+
+  border-radius: 15px;
+
+  box-shadow: 0 0 20px var(--cyan-color), inset 0 0 20px var(--cyan-color);
+}
+
+h1 {
+  margin-bottom: 30px;
+
+  color: var(--cyan-color);
+
+  text-shadow: 0 0 10px var(--cyan-color);
+}
+
+.stat-item {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin: 20px 0;
+}
+
+.stat-value {
+  font-weight: bold;
+
+  color: var(--magenta-color);
+}
+
+.btn-container {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-top: 30px;
+}
+
+.back-btn {
+  margin-top: 30px;
+
+  padding: 12px 25px;
+
+  font-size: 1.1rem;
+
+  text-decoration: none;
+
+  color: var(--magenta-color);
+
+  background: rgba(255, 0, 212, 0.2);
+
+  border: 2px solid var(--magenta-color);
+
+  border-radius: 8px;
+
+  box-shadow: 0 0 15px var(--magenta-color);
+
+  transition: all 0.3s ease;
+
+  cursor: pointer;
+
+  text-shadow: 0 0 5px var(--magenta-color);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .back-btn:hover {
+    background: rgba(255, 0, 212, 0.4);
+
+    box-shadow: 0 0 25px var(--magenta-color);
+
+    transform: scale(1.05);
+  }
+}
